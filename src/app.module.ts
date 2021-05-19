@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { MulterModule } from '@nestjs/platform-express';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { MovieController } from './movies/movie.controller';
 import { Movie } from './movies/movie.entity';
@@ -16,7 +17,10 @@ import { MovieService } from './movies/movie.service';
       autoLoadEntities: true,
       synchronize: true
     }),
-    TypeOrmModule.forFeature([Movie])
+    TypeOrmModule.forFeature([Movie]),
+    MulterModule.register({
+      dest: './uploads',
+    }),
   ],
   controllers: [MovieController],
   providers: [MovieService],

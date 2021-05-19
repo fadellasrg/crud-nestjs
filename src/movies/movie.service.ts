@@ -23,6 +23,7 @@ export class MovieService{
         movie.director = data.director;
         movie.year = data.year;
         movie.minutes = data.minutes;
+        movie.image = data.image;
 
         return this.movieRepository.save(movie);
     }

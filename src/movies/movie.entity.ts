@@ -16,4 +16,7 @@ export class Movie {
 
     @Column()
     minutes: number;
+
+    @Column()
+    image: string;
 }
