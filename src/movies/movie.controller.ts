@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Post, Put, Res, UploadedFile, UseFilters, UseInterceptors } from "@nestjs/common";
+import { Body, Controller, Delete, Get, HttpCode, HttpStatus, Param, Patch, Post, Put, Res, UploadedFile, UseFilters, UseInterceptors } from "@nestjs/common";
 import { FileInterceptor } from "@nestjs/platform-express";
 import { editFileName, imageFileFilter } from "src/utils/file-upload.utils";
 import { CreateMovieDto } from "./create-movie.dto";
@@ -42,7 +42,7 @@ export class MovieController {
         }
     }
 
-    @Put(':id')
+    @Patch(':id')
     async update(@UploadedFile() file, @Body() data: CreateMovieDto, @Param('id') id: number) {
         const detail = await this.movieService.findOne(id)
         const fs = require('fs')

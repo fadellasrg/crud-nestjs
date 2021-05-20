@@ -19,4 +19,7 @@ export class Movie {
 
     @Column()
     image: string;
+
+    @Column({ type: "timestamp", default: () => "CURRENT_TIMESTAMP"})
+    created_at: string;
 }

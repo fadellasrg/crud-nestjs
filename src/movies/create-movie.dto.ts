@@ -4,4 +4,5 @@ export class CreateMovieDto {
     year: number;
     minutes: number;
     image: string;
+    created_at: string
 }
